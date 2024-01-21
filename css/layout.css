@@ -36,12 +36,18 @@ body {
 } */
 
 .main {
+  display: table;
   width: 100%;
   margin: 20px 0;
-  border: thick solid purple;
-  overflow: scroll;
+  box-sizing: border-box;
+  table-layout: fixed;
 }
 
+.column {
+  display: table-cell;
+  padding: 10px;
+  border: thick solid purple; /* Adding border to each column */
+}
 /* Left and right column */
 .column.side {
   width: 25%;
@@ -63,7 +69,13 @@ body {
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .column.side, .column.middle {
+  .topnav a {
+    float: none;
+  }
+  .column {
+    display: block;
     width: 100%;
+    box-shadow: none;
+    margin: 0; /* Resetting the margin for mobile view */
   }
 }
